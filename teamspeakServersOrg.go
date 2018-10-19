@@ -9,7 +9,7 @@ import (
 )
 
 func getUrl(api Api) (string)  {
-	return fmt.Sprintf("https://teamspeak-servers.org/api/?object=servers&element=voters&key=%s&month=current&format=json", api.Key)
+	return fmt.Sprintf("https://teamspeak-servers.org/api/?object=servers&element=voters&key=%s&month=current&limit=500&format=json", api.Key)
 }
 
 func loadData() (Server)  {
