@@ -6,8 +6,9 @@ import (
 
 func main()  {
 	data := loadData()
-
 	db := connect()
+
+	checkNeedInstall(db)
 	loadCurrentMonth(db, data)
 
 	updateVoters(db)
