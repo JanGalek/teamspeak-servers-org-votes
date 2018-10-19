@@ -35,10 +35,9 @@ func install(db *sql.DB)  {
 	requests := strings.Split(string(sqlContent), ";")
 
 	for _, request := range requests {
-		if request != "" {
-			result, err := db.Exec(request)
+		if len(strings.TrimSpace(request)) != 0 {
+			_, err := db.Exec(request)
 			checkError(err)
-			println(result)
 		}
 	}
 }
