@@ -2,13 +2,14 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 )
 
 func getUrl(api Api) (string)  {
-	return "https://teamspeak-servers.org/api/?object=servers&element=voters&key=" + api.Key + "&month=current&format=json"
+	return fmt.Sprintf("https://teamspeak-servers.org/api/?object=servers&element=voters&key=%s&month=current&format=json", api.Key)
 }
 
 func loadData() (Server)  {
