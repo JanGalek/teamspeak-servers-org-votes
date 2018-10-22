@@ -5,11 +5,13 @@ import (
 )
 
 func main()  {
-	data := loadData()
+	data := loadData("current")
+	dataPrevious := loadData("previous")
 	db := connect()
 
 	checkNeedInstall(db)
 	loadCurrentMonth(db, data)
+	loadCurrentMonth(db, dataPrevious)
 
 	updateVoters(db)
 	defer db.Close()

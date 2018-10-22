@@ -8,14 +8,14 @@ import (
 	"net/http"
 )
 
-func getUrl(api Api) (string)  {
-	return fmt.Sprintf("https://teamspeak-servers.org/api/?object=servers&element=voters&key=%s&month=current&limit=500&format=json", api.Key)
+func getUrl(api Api, month string) (string)  {
+	return fmt.Sprintf("https://teamspeak-servers.org/api/?object=servers&element=voters&key=%s&month=%s&limit=500&format=json", api.Key, month)
 }
 
-func loadData() (Server)  {
+func loadData(month string) (Server)  {
 	api := getApi()
 
-	url := getUrl(api)
+	url := getUrl(api, month)
 	response, err := http.Get(url)
 
 	if err != nil {
